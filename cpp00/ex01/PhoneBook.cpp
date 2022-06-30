@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:26:47 by mmeising          #+#    #+#             */
-/*   Updated: 2022/06/30 04:43:09 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/06/30 04:53:24 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,35 +29,24 @@ PhoneBook::~PhoneBook() {}
 ** --------------------------------- METHODS ----------------------------------
 */
 
+string PromptType(string type) {
+    string ret;
+
+    do {
+        std::cout << "Contact's " << type << ": ";
+        std::getline(std::cin, ret);
+    } while (ret.size() == 0);
+    return ret;
+}
+
 Contact PhoneBook::PromptUser() {
     Contact contact;
-    string temp;
 
-    std::cout << "Contact's first name: ";
-    // std::getline(std::cin, temp);
-    std::cin >> temp;
-    std::cin.ignore(1000, '\n');
-    contact.set_firstname(temp);
-    std::cout << "Contact's last name: ";
-    // std::getline(std::cin, temp);
-    std::cin >> temp;
-    std::cin.ignore(1000, '\n');
-    contact.set_lastname(temp);
-    std::cout << "Contact's nickname: ";
-    // std::getline(std::cin, temp);
-    std::cin >> temp;
-    std::cin.ignore(1000, '\n');
-    contact.set_nickname(temp);
-    std::cout << "Contact's phone number: ";
-    // std::getline(std::cin, temp);
-    std::cin >> temp;
-    std::cin.ignore(1000, '\n');
-    contact.set_phone_number(temp);
-    std::cout << "Contact's darkest secret: ";
-    // std::getline(std::cin, temp);
-    std::cin >> temp;
-    std::cin.ignore(1000, '\n');
-    contact.set_secret(temp);
+    contact.set_firstname(PromptType("first name"));
+    contact.set_lastname(PromptType("last name"));
+    contact.set_nickname(PromptType("nickname"));
+    contact.set_phone_number(PromptType("phone number"));
+    contact.set_secret(PromptType("darkest secret"));
     return contact;
 }
 
