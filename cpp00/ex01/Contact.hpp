@@ -6,31 +6,40 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:33:42 by mmeising          #+#    #+#             */
-/*   Updated: 2022/06/28 17:33:45 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/06/30 02:20:04 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
-# define CONTACT_HPP
+#define CONTACT_HPP
 
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
 
-class Contact
-{
+class Contact {
+   public:
 
-	public:
+    Contact();
+    ~Contact();
 
-		Contact();
-		Contact( Contact const & src );
-		~Contact();
+    const std::string &get_firstname() const;
+    const std::string &get_lastname() const;
+    const std::string &get_nickname() const;
+    const std::string &get_phone_number() const;
+    const std::string &get_secret() const;
 
-		Contact &		operator=( Contact const & rhs );
+    void set_firstname(std::string content);
+    void set_lastname(std::string content);
+    void set_nickname(std::string content);
+    void set_phone_number(std::string content);
+    void set_secret(std::string content);
 
-	private:
-
+   private:
+    std::string first_name_;
+    std::string last_name_;
+    std::string nickname_;
+    std::string phone_number_;
+    std::string secret_;
 };
 
-std::ostream &			operator<<( std::ostream & o, Contact const & i );
-
-#endif /* ********************************************************* CONTACT_H */
+#endif /* ******************************************************* CONTACT_H */

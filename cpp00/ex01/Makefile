@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 13:12:38 by mmeising          #+#    #+#              #
-#    Updated: 2022/06/28 13:13:11 by mmeising         ###   ########.fr        #
+#    Updated: 2022/06/30 00:19:32 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME := phonebook
 CC := c++
 CFLAGS := -Wall -Werror -Wextra -std=c++98
 
-SRC := PhoneBook.cpp
+SRC := PhoneBook.cpp Contact.cpp main.cpp
 
 OBJ_DIR := _obj
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
