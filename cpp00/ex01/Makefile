@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 13:12:38 by mmeising          #+#    #+#              #
-#    Updated: 2022/06/30 00:19:32 by mmeising         ###   ########.fr        #
+#    Updated: 2022/06/30 23:13:01 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME := phonebook
 
 CC := c++
-CFLAGS := -Wall -Werror -Wextra -std=c++98
+CFLAGS := -Wall -Werror -Wextra
 
 SRC := PhoneBook.cpp Contact.cpp main.cpp
 
@@ -45,7 +45,6 @@ fclean: clean
 		rm $(NAME); \
 		printf "cleaned program\n"; \
 	fi
-		
 
 re: fclean all
 

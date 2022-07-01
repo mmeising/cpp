@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:33:42 by mmeising          #+#    #+#             */
-/*   Updated: 2022/06/30 02:20:04 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/06/30 22:40:59 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Contact {
     std::string first_name_;
     std::string last_name_;
     std::string nickname_;
-    std::string phone_number_;
+    std::string phone_num_;
     std::string secret_;
 };
 

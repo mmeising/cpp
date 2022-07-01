@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:26:43 by mmeising          #+#    #+#             */
-/*   Updated: 2022/06/30 03:08:39 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/06/30 22:35:38 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ class PhoneBook {
    private:
     Contact contacts[8];
     int i;
-
-    Contact PromptUser();
 };
 
 #endif /* ****************************************************** PHONEBOOK_H*/

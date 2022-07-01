@@ -6,60 +6,68 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:26:47 by mmeising          #+#    #+#             */
-/*   Updated: 2022/06/30 04:53:24 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/06/30 23:07:57 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 using std::string;
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
-
 PhoneBook::PhoneBook() { i = 0; }
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
-
 PhoneBook::~PhoneBook() {}
 
 /*
-** --------------------------------- METHODS ----------------------------------
+** ------------------------------- ADD Command --------------------------------
 */
+
+static int IsEmpty(std::string str) {
+    string comp(str.size(), ' ');
+
+    if (std::memcmp(str.c_str(), comp.c_str(), str.size()) == 0)
+        return 1;
+    return 0;
+}
 
 string PromptType(string type) {
     string ret;
 
     do {
         std::cout << "Contact's " << type << ": ";
-        std::getline(std::cin, ret);
-    } while (ret.size() == 0);
+        if (!std::getline(std::cin, ret)) {
+            std::exit(0);
+        }
+    } while (ret.size() == 0 || IsEmpty(ret));
     return ret;
 }
 
-Contact PhoneBook::PromptUser() {
-    Contact contact;
-
+void PromptUser(Contact &contact) {
     contact.set_firstname(PromptType("first name"));
     contact.set_lastname(PromptType("last name"));
     contact.set_nickname(PromptType("nickname"));
     contact.set_phone_number(PromptType("phone number"));
     contact.set_secret(PromptType("darkest secret"));
-    return contact;
 }
 
 void PhoneBook::AddContact() {
     if (i < 8) {
-        contacts[i] = PromptUser();
+        PromptUser(contacts[i]);
         i++;
     } else {
         for (int j = 0; j < 6; j++) {
             contacts[j] = contacts[j + 1];
         }
-        contacts[7] = PromptUser();
+        PromptUser(contacts[7]);
     }
+}
+
+/*
+** ------------------------------ SEARCH Command ------------------------------
+*/
+
+static void PrintHeader() {
+    std::cout << "---------------------------------------------\n"
+              << "|   Entry  |First name| Last name| Nickname |\n"
+              << "---------------------------------------------\n";
 }
 
 static void PrintWide(std::string string) {
@@ -71,7 +79,7 @@ static void PrintWide(std::string string) {
     std::cout << "|";
 }
 
-static void PrintRow(Contact contact, int i) {
+static void PrintRow(const Contact &contact, int i) {
     std::cout << "|" << std::setw(10) << i << "|";
     PrintWide(contact.get_firstname());
     PrintWide(contact.get_lastname());
@@ -79,7 +87,7 @@ static void PrintRow(Contact contact, int i) {
     std::cout << "\n";
 }
 
-static void PrintInfo(Contact contact) {
+static void PrintEntry(const Contact &contact) {
     std::cout << "First Name: " << contact.get_firstname() << "\n"
               << "Last Name: " << contact.get_lastname() << "\n"
               << "Nickname: " << contact.get_nickname() << "\n"
@@ -89,21 +97,19 @@ static void PrintInfo(Contact contact) {
 
 void PhoneBook::Search() const {
     string string;
+    PrintHeader();
     for (int i = 0; i < 8; i++) {
         PrintRow(contacts[i], i + 1);
     }
+    std::cout << "---------------------------------------------\n";
     std::cout << "Which entry do you want to see? ";
-    std::getline(std::cin, string);
+    if (!std::getline(std::cin, string)) {
+        std::exit(0);
+    }
     if (string.size() != 1 || atoi(string.c_str()) < 1 ||
         atoi(string.c_str()) > 8) {
         std::cout << "Not a valid index. Returning to main menu\n";
     } else {
-        PrintInfo(contacts[atoi(string.c_str()) - 1]);
+        PrintEntry(contacts[atoi(string.c_str()) - 1]);
     }
 }
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
-/* ************************************************************************** */

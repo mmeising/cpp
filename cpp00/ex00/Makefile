@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 12:36:23 by mmeising          #+#    #+#              #
-#    Updated: 2022/06/28 13:09:25 by mmeising         ###   ########.fr        #
+#    Updated: 2022/06/30 23:13:06 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,6 @@ fclean: clean
 		rm $(NAME); \
 		printf "cleaned program\n"; \
 	fi
-		
 
 re: fclean all
 
