@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:18:13 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/01 04:33:58 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/01 22:39:29 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,97 @@ int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
+
+/*
+** ------------------------------- All Accounts -------------------------------
+*/
+
+int Account::getNbAccounts(void) { return _nbAccounts; }
+int Account::getTotalAmount(void) { return _totalAmount; }
+int Account::getNbDeposits(void) { return _totalNbDeposits; }
+int Account::getNbWithdrawals(void) { return _totalNbWithdrawals; }
+
+void Account::displayAccountsInfos(void) {
+    _displayTimestamp();
+    std::cout << "accounts:" << getNbAccounts()
+              << ";total:" << getTotalAmount() 
+              << ";deposits:" << getNbDeposits()
+              << ";withdrawals:" << getNbWithdrawals() << "\n";
+}
+
+/*
+** ----------------------------- (De-)Constructor -----------------------------
+*/
+
+Account::Account(void) {
+    _accountIndex = Account::_nbAccounts++;
+    _amount = 0;
+    _displayTimestamp();
+    std::cout << "index:" << _accountIndex << ";amount:" << _amount
+              << ";created\n";
+}
+
+Account::Account(int initial_deposit) {
+    _accountIndex = Account::_nbAccounts++;
+    _amount = initial_deposit;
+    _totalAmount += _amount;
+    _displayTimestamp();
+    std::cout << "index:" << _accountIndex << ";amount:" << _amount
+              << ";created\n";
+}
+
+Account::~Account(void) {
+    _displayTimestamp();
+    std::cout << "index:" << _accountIndex << ";amount:" << _amount
+              << ";closed\n";
+}
+
+/*
+** ------------------------------- One Account --------------------------------
+*/
+
+void	Account::makeDeposit( int deposit ) {
+    _amount += deposit;
+    _totalAmount += deposit;
+    _nbDeposits++;
+    _totalNbDeposits++;
+    _displayTimestamp();
+    std::cout << "index:" << _accountIndex << ";p_amount:" << _amount - deposit
+              << ";deposit:" << deposit << ";amount:" << _amount 
+              << ";nb_deposits:" << _nbDeposits << "\n";
+}
+
+bool	Account::makeWithdrawal( int withdrawal ) {
+    _displayTimestamp();
+    std::cout << "index:" << _accountIndex << ";p_amount:" << _amount 
+              << ";withdrawal:";
+    if (_amount >= withdrawal) {
+        _amount -= withdrawal;
+        _totalAmount -= withdrawal;
+        _nbWithdrawals++;
+        _totalNbWithdrawals++;
+        std::cout << withdrawal << ";amount:" << _amount 
+                  << ";nb_withdrawals:" << _nbWithdrawals << "\n";
+    } else {
+        std::cout << "refused\n";
+        return 1;
+    }
+    return 0;
+}
+
+int		Account::checkAmount( void ) const { return _amount; }
+
+void	Account::displayStatus( void ) const {
+    _displayTimestamp();
+    std::cout << "index:" << _accountIndex
+              << ";amount:" << _amount
+              << ";deposits:" << _nbDeposits
+              << ";withdrawals:" << _nbWithdrawals << "\n";
+}
+
+/*
+** --------------------------------- Utility ----------------------------------
+*/
 
 void Account::_displayTimestamp(void) {
     time_t raw_time;
@@ -42,22 +133,5 @@ void Account::_displayTimestamp(void) {
     std::cout << ptm->tm_min;
     std::cout << std::setfill('0') << std::setw(2);
     std::cout << ptm->tm_sec;
-    std::cout << "]";
+    std::cout << "] ";
 }
-
-Account::Account(int initial_deposit) {
-    _accountIndex = Account::_nbAccounts++;
-    _amount = initial_deposit;
-    _displayTimestamp();
-    std::cout << "index:" << _accountIndex << ";amount:" << initial_deposit
-              << ";created\n";
-}
-
-Account::Account(void) {}
-Account::~Account(void) {}
-
-// int Account::getNbAccounts(void) { return _nbAccounts; }
-// int Account::getTotalAmount(void) { return _totalAmount; }
-// int Account::getNbDeposits(void) { return _totalNbDeposits; }
-// int Account::getNbWithdrawals(void) { return _totalNbWithdrawals; }
-// void Account::displayAccountsInfos(void) {}
