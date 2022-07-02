@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:18:13 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/01 22:39:29 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:34:45 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int Account::_totalNbWithdrawals = 0;
 ** ------------------------------- All Accounts -------------------------------
 */
 
-int Account::getNbAccounts(void) { return _nbAccounts; }
-int Account::getTotalAmount(void) { return _totalAmount; }
-int Account::getNbDeposits(void) { return _totalNbDeposits; }
-int Account::getNbWithdrawals(void) { return _totalNbWithdrawals; }
+int Account::getNbAccounts(void) { return Account::_nbAccounts; }
+int Account::getTotalAmount(void) { return Account::_totalAmount; }
+int Account::getNbDeposits(void) { return Account::_totalNbDeposits; }
+int Account::getNbWithdrawals(void) { return Account::_totalNbWithdrawals; }
 
 void Account::displayAccountsInfos(void) {
     _displayTimestamp();
