@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 23:22:10 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/03 04:16:27 by mmeising         ###   ########.fr       */
+/*   Created: 2022/07/03 04:55:18 by mmeising          #+#    #+#             */
+/*   Updated: 2022/07/03 06:31:05 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 #include <iostream>
 #include <string>
 
-class Zombie {
+#include "Weapon.hpp"
+
+class HumanB {
    public:
-    void announce(void);
-    void setName(std::string new_name);
+    void attack();
+    void setWeapon(Weapon& weapon);
 
-    Zombie();
-    Zombie(std::string name);
-    Zombie(Zombie const& src);
-    ~Zombie();
+    HumanB();
+    HumanB(HumanB const& src);
+    HumanB(std::string name);
+    ~HumanB();
 
-    Zombie& operator=(Zombie const& rhs);
+    HumanB& operator=(HumanB const& rhs);
 
    private:
     std::string name;
+    Weapon* weapon;
 };
 
-Zombie* zombieHorde(int N, std::string name);
+std::ostream& operator<<(std::ostream& o, HumanB const& i);
 
-#endif /* ******************************************************** ZOMBIE_H */
+#endif /* ********************************************************** HUMANB_H \
+        */

@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 23:22:10 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/03 04:16:27 by mmeising         ###   ########.fr       */
+/*   Created: 2022/07/03 00:47:32 by mmeising          #+#    #+#             */
+/*   Updated: 2022/07/03 05:30:27 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
 #include <iostream>
 #include <string>
 
-class Zombie {
+class Weapon {
    public:
-    void announce(void);
-    void setName(std::string new_name);
+    const std::string& getType() const;
+    void setType(std::string const& new_type);
 
-    Zombie();
-    Zombie(std::string name);
-    Zombie(Zombie const& src);
-    ~Zombie();
+    Weapon();
+    Weapon(Weapon const& src);
+    Weapon(std::string type);
+    ~Weapon();
 
-    Zombie& operator=(Zombie const& rhs);
+    Weapon& operator=(Weapon const& rhs);
 
    private:
-    std::string name;
+    std::string type;
 };
 
-Zombie* zombieHorde(int N, std::string name);
+std::ostream& operator<<(std::ostream& o, Weapon const& i);
 
-#endif /* ******************************************************** ZOMBIE_H */
+#endif /* ******************************************************** WEAPON_H */
