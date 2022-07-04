@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 04:55:18 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/03 06:31:05 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/04 18:32:40 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class HumanB {
    public:
     void attack();
     void setWeapon(Weapon& weapon);
+    Weapon* getWeapon();
 
     HumanB();
     HumanB(HumanB const& src);
@@ -35,7 +36,4 @@ class HumanB {
     Weapon* weapon;
 };
 
-std::ostream& operator<<(std::ostream& o, HumanB const& i);
-
-#endif /* ********************************************************** HUMANB_H \
-        */
+#endif /* ******************************************************** HUMANB_H */

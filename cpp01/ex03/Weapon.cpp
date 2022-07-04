@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 00:49:48 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/03 06:55:42 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:24:00 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ std::string const& Weapon::getType() const { return type; }
 ** --------------------------------- MUTATOR ----------------------------------
 */
 
-void Weapon::setType(std::string const& new_type) { this->type = new_type; }
+void Weapon::setType(std::string const& new_type) { type = new_type; }
 
 /* ************************************************************************** */

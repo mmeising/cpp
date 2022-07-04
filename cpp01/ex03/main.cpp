@@ -6,11 +6,10 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 00:35:19 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/03 05:22:06 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/04 18:31:14 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 

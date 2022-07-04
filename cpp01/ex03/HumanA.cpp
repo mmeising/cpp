@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 04:54:11 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/03 07:02:51 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/04 18:34:36 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-HumanA::HumanA() {}
 HumanA::HumanA(const HumanA& src) : name(src.name), weapon(src.weapon) {}
-HumanA::HumanA(std::string name, Weapon weapon) : name(name), weapon(&weapon) {}
+HumanA::HumanA(std::string name, Weapon& weapon) : name(name), weapon(weapon) {}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -45,9 +44,5 @@ HumanA& HumanA::operator=(HumanA const& rhs) {
 void HumanA::attack() {
     std::cout << name << " attacks with their " << weapon << "\n";
 }
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
 
 /* ************************************************************************* */

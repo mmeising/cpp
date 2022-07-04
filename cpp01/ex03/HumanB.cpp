@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 04:55:36 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/03 05:45:43 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/04 18:34:54 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-HumanB::HumanB() {}
+HumanB::HumanB() : name("default name"), weapon(NULL) {}
 HumanB::HumanB(const HumanB& src) : name(src.name), weapon(src.weapon) {}
-HumanB::HumanB(std::string name) : name(name) {}
+HumanB::HumanB(std::string name) : name(name), weapon(NULL) {}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -44,17 +44,23 @@ HumanB& HumanB::operator=(HumanB const& rhs) {
 
 void HumanB::attack() {
     std::cout << name << " attacks with their ";
-    if (weapon.getType() != "") {
-        std::cout << weapon.getType() << "\n";
+    if (weapon->getType() != "") {
+        std::cout << weapon->getType() << "\n";
     } else {
         std::cout << "bare fists\n";
     }
 }
 
-void HumanB::setWeapon(Weapon& new_weapon) { weapon = new_weapon; }
-
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+void HumanB::setWeapon(Weapon& new_weapon) { weapon = &new_weapon; }
+
+/*
+** --------------------------------- MUTATOR ----------------------------------
+*/
+
+Weapon* HumanB::getWeapon() { return weapon; }
 
 /* ************************************************************************* */
