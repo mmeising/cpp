@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 20:00:37 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/05 20:03:58 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/05 20:35:20 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int ReplaceFile::readFromFile() {
     return 0;
 }
 
-int ReplaceFile::writeToFile() {
+int ReplaceFile::writeToFile() const {
     std::ofstream ofs(getFile() + ".replace");
 
     if (!ofs.is_open()) {
@@ -68,9 +68,9 @@ void ReplaceFile::replaceStrings() {
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string ReplaceFile::getFile() { return file_; }
-std::string ReplaceFile::getSearch() { return search_; }
-std::string ReplaceFile::getReplace() { return replace_; }
+std::string ReplaceFile::getFile() const { return file_; }
+std::string ReplaceFile::getSearch() const { return search_; }
+std::string ReplaceFile::getReplace() const { return replace_; }
 
 /*
 ** --------------------------------- MUTATOR ----------------------------------
