@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 18:36:33 by mmeising          #+#    #+#              #
-#    Updated: 2022/07/04 19:04:15 by mmeising         ###   ########.fr        #
+#    Updated: 2022/07/05 18:17:28 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME := replace
 CC := c++
 CFLAGS := -Wall -Werror -Wextra
 
-SRC := main.cpp
+SRC := main.cpp ReplaceFile.cpp
 
 OBJ_DIR := _obj
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
