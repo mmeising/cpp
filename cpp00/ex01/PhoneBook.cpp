@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:26:47 by mmeising          #+#    #+#             */
-/*   Updated: 2022/06/30 23:07:57 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/08 13:18:38 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void PhoneBook::AddContact() {
         PromptUser(contacts[i]);
         i++;
     } else {
-        for (int j = 0; j < 6; j++) {
+        for (int j = 0; j < 7; j++) {
             contacts[j] = contacts[j + 1];
         }
         PromptUser(contacts[7]);
