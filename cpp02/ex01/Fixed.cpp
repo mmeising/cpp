@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:43:03 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/08 22:40:41 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/08 22:44:46 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ Fixed::Fixed(const Fixed& src) {
     if (messages_) {
         std::cout << "Copy constructor called\n";
     }
-    val_ = src.getRawBits();  // either this line or
-    // *this = src;         //this copy assignment operator call
+    val_ = src.getRawBits();  // either this line or ...
+    // *this = src;         // ... this copy assignment operator call
 }
 
 /*
@@ -103,6 +103,10 @@ int Fixed::getRawBits() const {
     }
     return val_;
 }
+
+/*
+** --------------------------------- MUTATOR ----------------------------------
+*/
 
 void Fixed::setRawBits(int const raw) { val_ = raw; }
 
