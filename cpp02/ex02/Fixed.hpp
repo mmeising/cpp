@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 22:55:27 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/12 17:25:33 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/13 21:21:44 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include <iostream>
 #include <string>
 
+//  Keep in mind that with 8 bits for the value after the decimal point, the
+//  lowest increments Fixed numbers can do is 1 / 2^8 = 1 / 256 = 0.00390625.
+//  It will always round down to the next multiple of that fraction.
 class Fixed {
    public:
     Fixed();
@@ -35,26 +38,26 @@ class Fixed {
 
     // Comparison operators
 
-    bool operator<(Fixed& const rhs);
-    bool operator>(Fixed& const rhs);
-    bool operator>=(Fixed& const rhs);
-    bool operator<=(Fixed& const rhs);
-    bool operator!=(Fixed& const rhs);
-    bool operator==(Fixed& const rhs);
+    bool operator<(Fixed& rhs);
+    bool operator>(Fixed& rhs);
+    bool operator>=(Fixed& rhs);
+    bool operator<=(Fixed& rhs);
+    bool operator!=(Fixed& rhs);
+    bool operator==(Fixed& rhs);
 
     // Arithmetic operators
 
-    Fixed& operator+(Fixed const& rhs);
-    Fixed& operator-(Fixed const& rhs);
-    Fixed& operator*(Fixed const& rhs);
-    Fixed& operator/(Fixed const& rhs);
+    Fixed operator+(Fixed const& rhs);
+    Fixed operator-(Fixed const& rhs);
+    Fixed operator*(Fixed const& rhs);
+    Fixed operator/(Fixed const& rhs);
 
-    // In-/Decrement
+    // // In-/Decrement
 
     Fixed& operator++();
-    Fixed& operator++(Fixed const& rhs);
+    Fixed operator++(int n);
     Fixed& operator--();
-    Fixed& operator--(Fixed const& rhs);
+    Fixed operator--(int n);
 
     // Min/Max
 

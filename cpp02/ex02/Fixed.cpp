@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 22:55:10 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/12 17:26:15 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/13 21:30:01 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ Fixed::~Fixed() {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
+std::ostream& operator<<(std::ostream& o, Fixed const& i) {
+    o << i.toFloat();
+    return o;
+}
+
 Fixed& Fixed::operator=(Fixed const& rhs) {
     if (this != &rhs) {
         if (messages_) {
@@ -80,25 +85,100 @@ Fixed& Fixed::operator=(Fixed const& rhs) {
     return *this;
 }
 
-bool Fixed::operator<(Fixed& const rhs) {
+bool Fixed::operator<(Fixed& rhs) {
     return this->getRawBits() < rhs.getRawBits();
 }
 
-bool Fixed::operator>(Fixed& const rhs) { return rhs < *this; }
+bool Fixed::operator>(Fixed& rhs) { return rhs < *this; }
 
-bool Fixed::operator>=(Fixed& const rhs) { return !(*this < rhs); }
+bool Fixed::operator>=(Fixed& rhs) { return !(*this < rhs); }
 
-bool Fixed::operator<=(Fixed& const rhs) { return !(rhs < *this); }
+bool Fixed::operator<=(Fixed& rhs) { return !(rhs < *this); }
 
-bool Fixed::operator!=(Fixed& const rhs) { return *this < rhs || rhs < *this;}
+bool Fixed::operator!=(Fixed& rhs) { return *this < rhs || rhs < *this;}
 
-bool Fixed::operator==(Fixed& const rhs) { 
+bool Fixed::operator==(Fixed& rhs) { 
     return !(*this < rhs || rhs < *this);
 }
 
-std::ostream& operator<<(std::ostream& o, Fixed const& i) {
-    o << i.toFloat();
-    return o;
+Fixed Fixed::operator+(Fixed const& rhs) {
+    Fixed result;
+
+    result.setRawBits(this->getRawBits() + rhs.getRawBits());
+    return result;
+}
+
+Fixed Fixed::operator-(Fixed const& rhs) {
+    Fixed result;
+
+    result.setRawBits(this->getRawBits() - rhs.getRawBits());
+    return result;
+}
+
+Fixed Fixed::operator*(Fixed const& rhs) {
+    Fixed result;
+
+    result = Fixed(this->toFloat() * rhs.toFloat());
+    return result;
+}
+
+Fixed Fixed::operator/(Fixed const& rhs) {
+    Fixed result;
+
+    result = Fixed(this->toFloat() / rhs.toFloat());
+    return result;
+}
+
+// Prefix Increment
+Fixed& Fixed::operator++() {
+    int raw = this->getRawBits();
+
+    raw++;
+    this->setRawBits(raw);
+    // this->setRawBits(this->getRawBits()++);
+    return *this;
+}
+
+// Postfix Increment
+Fixed Fixed::operator++(int n) {
+    Fixed temp;
+    int raw = this->getRawBits();
+
+    temp = *this;
+    if (n == 0) {
+        raw++;
+    } else {
+        raw += n;
+    }
+    this->setRawBits(raw);
+    // this->setRawBits(this->getRawBits()++);
+    return temp;
+}
+
+// Prefix Decrement
+Fixed& Fixed::operator--() {
+    int raw = this->getRawBits();
+
+    raw--;
+    this->setRawBits(raw);
+    // this->setRawBits(this->getRawBits()--);
+    return *this;
+}
+
+// Postfix Decrement
+Fixed Fixed::operator--(int n) {
+    Fixed temp;
+    int raw = this->getRawBits();
+
+    temp = *this;
+    if (n == 0) {
+        raw--;
+    } else {
+        raw -= n;
+    }
+    this->setRawBits(raw);
+    // this->setRawBits(this->getRawBits()--);
+    return temp;
 }
 
 /*
