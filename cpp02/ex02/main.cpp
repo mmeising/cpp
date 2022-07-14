@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 22:56:34 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/13 21:36:43 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/14 23:17:08 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,79 +20,104 @@ void true_or_false(bool a) {
     }
 }
 
+void test_relational() {
+    Fixed x;
+    Fixed y = 3;
+    Fixed z(y);
+
+    x = Fixed(5.5f);
+    std::cout << "x = Fixed(5.5f), y = 3:\n\n";
+    std::cout << "x < y ";
+    true_or_false(x < y);
+    std::cout << "x > y ";
+    true_or_false(x > y);
+    std::cout << "x <= y ";
+    true_or_false(x <= y);
+    std::cout << "x >= y ";
+    true_or_false(x >= y);
+    std::cout << "x != y ";
+    true_or_false(x != y);
+    std::cout << "x == y ";
+    true_or_false(x == y);
+
+    x = 3;
+    std::cout << "\nx = 3, y = 3:\n\n";
+    std::cout << "x < y ";
+    true_or_false(x < y);
+    std::cout << "x > y ";
+    true_or_false(x > y);
+    std::cout << "x <= y ";
+    true_or_false(x <= y);
+    std::cout << "x >= y ";
+    true_or_false(x >= y);
+    std::cout << "x != y ";
+    true_or_false(x != y);
+    std::cout << "x == y ";
+    true_or_false(x == y);
+}
+
+void test_arithmetic() {
+    Fixed result;
+
+    result = Fixed(5.03125f) + Fixed(3.0625f);
+    std::cout << "\n5.03125f + 3.0625f = " << result;
+    result = Fixed(5.03125f) + Fixed(-3.0625f);
+    std::cout << "\n5.03125f + -3.0625f = " << result;
+
+    result = Fixed(5.5f) - Fixed(3.25f);
+    std::cout << "\n5.5f - 3.25f = " << result;
+    result = Fixed(5.03125f) - Fixed(-3.0625f);
+    std::cout << "\n5.03125f - -3.0625f = " << result;
+
+    result = Fixed(2.25f) * Fixed(1.5f);
+    std::cout << "\n2.25f * 1.5f = " << result;
+    result = Fixed(2.25f) * Fixed(-1.5f);
+    std::cout << "\n2.25f * -1.5f  = " << result;
+
+    result = Fixed(2.25f) / Fixed(1.5f);
+    std::cout << "\n2.25f / 1.5f = " << result;
+    result = Fixed(2.25f) / Fixed(-1.5f);
+    std::cout << "\n2.25f / -1.5f  = " << result;
+}
+
+void test_crement() {
+    Fixed x(0);
+
+    std::cout << "\n\nx(0):\n\n";
+    std::cout << "x: " << x << "\n";
+    std::cout << "++x: " << ++x << "\n";
+    std::cout << "x++: " << x++ << "\n";
+    std::cout << "x: " << x << "\n\n";
+
+    Fixed y(Fixed(5.05f) * Fixed(2));
+
+    std::cout << "y(Fixed(5.05f) * Fixed(2)):\n\n";
+    std::cout << y << "\n";
+}
+
+void test_min_max() {
+    Fixed x(5.25f);
+    Fixed y(5.125f);
+    Fixed const cx(1.5f);
+    Fixed const cy(1.125f);
+
+    std::cout << "x(5.25f), y(5.125f)\n";
+    std::cout << "min(x, y): ";
+    std::cout << Fixed::min(x, y);
+    std::cout << "\nmax(x, y): ";
+    std::cout << Fixed::max(x, y);
+
+    std::cout << "\n\nconst cx(1.5f), const cy(1.125f)\n";
+    std::cout << "min(cx, cy): ";
+    std::cout << Fixed::min(cx, cy);
+    std::cout << "\nmax(cx, cy): ";
+    std::cout << Fixed::max(cx, cy);
+    std::cout << "\n\n";
+}
+
 int main() {
-    {
-        //      < > <= >= != ==
-        Fixed x;
-        Fixed y = 3;
-        Fixed z(y);
-
-        x = Fixed(5.5f);
-        std::cout << "x = Fixed(5.5f), y = 3:\n\n";
-        std::cout << "x < y ";
-        true_or_false(x < y);
-        std::cout << "x > y ";
-        true_or_false(x > y);
-        std::cout << "x <= y ";
-        true_or_false(x <= y);
-        std::cout << "x >= y ";
-        true_or_false(x >= y);
-        std::cout << "x != y ";
-        true_or_false(x != y);
-        std::cout << "x == y ";
-        true_or_false(x == y);
-
-        x = 3;
-        std::cout << "\nx = 3, y = 3:\n\n";
-        std::cout << "x < y ";
-        true_or_false(x < y);
-        std::cout << "x > y ";
-        true_or_false(x > y);
-        std::cout << "x <= y ";
-        true_or_false(x <= y);
-        std::cout << "x >= y ";
-        true_or_false(x >= y);
-        std::cout << "x != y ";
-        true_or_false(x != y);
-        std::cout << "x == y ";
-        true_or_false(x == y);
-    }
-    {
-        //      +  -  *  /
-        Fixed result;
-        result = Fixed(5.03125f) + Fixed(3.0625f);
-        std::cout << "\n5.03125f + 3.0625f = " << result;
-        result = Fixed(5.03125f) + Fixed(-3.0625f);
-        std::cout << "\n5.03125f + -3.0625f = " << result;
-
-        result = Fixed(5.5f) - Fixed(3.25f);
-        std::cout << "\n5.5f - 3.25f = " << result;
-        result = Fixed(5.03125f) - Fixed(-3.0625f);
-        std::cout << "\n5.03125f - -3.0625f = " << result;
-
-        result = Fixed(2.25f) * Fixed(1.5f);
-        std::cout << "\n2.25f * 1.5f = " << result;
-        result = Fixed(2.25f) * Fixed(-1.5f);
-        std::cout << "\n2.25f * -1.5f  = " << result;
-
-        result = Fixed(2.25f) / Fixed(1.5f);
-        std::cout << "\n2.25f / 1.5f = " << result;
-        result = Fixed(2.25f) / Fixed(-1.5f);
-        std::cout << "\n2.25f / -1.5f  = " << result;
-    }
-    {
-        Fixed x(0);
-
-        std::cout << "\n\nx(0):\n\n";
-        std::cout << "x: " << x << "\n";
-        std::cout << "++x: " << ++x << "\n";
-        std::cout << "x++: " << x++ << "\n";
-        std::cout << "x: " << x << "\n\n";
-
-        Fixed y(Fixed(5.05f) * Fixed(2));
-
-        std::cout << "y(Fixed(5.05f) * Fixed(2)):\n\n";
-        std::cout << y << "\n";
-
-    }
+    test_relational();
+    test_arithmetic();
+    test_crement();
+    test_min_max();
 }

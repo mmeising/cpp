@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 22:55:27 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/13 21:21:44 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/14 18:01:50 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ class Fixed {
 
     // Min/Max
 
-    Fixed& min(Fixed& a, Fixed& b);
-    Fixed& max(Fixed& a, Fixed& b);
-    Fixed& min(Fixed const& a, Fixed const& b);
-    Fixed& max(Fixed const& a, Fixed const& b);
+    static Fixed& min(Fixed& a, Fixed& b);
+    static Fixed& max(Fixed& a, Fixed& b);
+    static Fixed& min(Fixed const& a, Fixed const& b);
+    static Fixed& max(Fixed const& a, Fixed const& b);
 
    private:
     int val_;                     // fixed point number value

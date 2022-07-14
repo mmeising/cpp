@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 22:55:10 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/13 21:30:01 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/14 23:16:55 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,6 @@ Fixed& Fixed::operator++() {
 
     raw++;
     this->setRawBits(raw);
-    // this->setRawBits(this->getRawBits()++);
     return *this;
 }
 
@@ -151,7 +150,6 @@ Fixed Fixed::operator++(int n) {
         raw += n;
     }
     this->setRawBits(raw);
-    // this->setRawBits(this->getRawBits()++);
     return temp;
 }
 
@@ -161,7 +159,6 @@ Fixed& Fixed::operator--() {
 
     raw--;
     this->setRawBits(raw);
-    // this->setRawBits(this->getRawBits()--);
     return *this;
 }
 
@@ -177,7 +174,6 @@ Fixed Fixed::operator--(int n) {
         raw -= n;
     }
     this->setRawBits(raw);
-    // this->setRawBits(this->getRawBits()--);
     return temp;
 }
 
@@ -186,8 +182,51 @@ Fixed Fixed::operator--(int n) {
 */
 
 float Fixed::toFloat() const { return ((float)getRawBits() / 256); }
-
 int Fixed::toInt() const { return getRawBits() >> fract_; }
+
+Fixed& Fixed::min(Fixed& a, Fixed& b) {
+    if (messages_) {
+        std::cout << "min called\n";
+    }
+    if (a <= b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b) {
+    if (messages_) {
+        std::cout << "max called\n";
+    }
+    if (b <= a) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+Fixed& Fixed::min(Fixed const& a, Fixed const& b) {
+    if (messages_) {
+        std::cout << "min const called\n";
+    }
+    if (a.getRawBits() < b.getRawBits()) {
+        return (Fixed&)a;
+    } else {
+        return (Fixed&)b;
+    }
+}
+
+Fixed& Fixed::max(Fixed const& a, Fixed const& b) {
+    if (messages_) {
+        std::cout << "max const called\n";
+    }
+    if (a.getRawBits() < b.getRawBits()) {
+        return (Fixed&)a;
+    } else {
+        return (Fixed&)b;
+    }
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
