@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:56:31 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/16 09:13:13 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/07/31 15:47:24 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,31 @@
 */
 
 ClapTrap::ClapTrap()
-    : name_("Default name"),
+    : name_("default_name"),
       hit_points_(10),
       energy_points_(10),
       attack_dmg_(0) {
-        std::cout << "ClapTrap default constructor called\n";
-      }
+    std::cout << "ClapTrap default constructor called\n";
+}
 
 ClapTrap::ClapTrap(const ClapTrap& src)
     : name_(src.name_),
       hit_points_(src.hit_points_),
       energy_points_(src.energy_points_),
       attack_dmg_(src.attack_dmg_) {
-        std::cout << "ClapTrap copy constructor called\n";
-      }
+    std::cout << "ClapTrap copy constructor called\n";
+}
 
 ClapTrap::ClapTrap(std::string name)
-    : name_(name),
-      hit_points_(10),
-      energy_points_(10),
-      attack_dmg_(0) {
-        std::cout << "ClapTrap named constructor called\n";
-      }
+    : name_(name), hit_points_(10), energy_points_(10), attack_dmg_(0) {
+    std::cout << "ClapTrap named constructor called\n";
+}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ClapTrap::~ClapTrap() {}
+ClapTrap::~ClapTrap() { std::cout << "ClapTrap default destructor called\n"; }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
@@ -60,19 +57,14 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& rhs) {
     return *this;
 }
 
-std::ostream& operator<<(std::ostream& o, ClapTrap const& i) {
-    // o << "Value = " << i.getValue();
-    return o;
-}
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
 void ClapTrap::attack(const std::string& target) {
     if (energy_points_ > 0 && hit_points_ > 0) {
-        std::cout << name_ << " attacks " << target << " for " << attack_dmg_
-                  << "damage\n";
+        std::cout << "ClapTrap " << name_ << " attacks " << target
+                  << ", causing " << attack_dmg_ << " points of damage\n";
         energy_points_--;
     } else {
         std::cout << name_ << " can't attack " << target;
@@ -88,8 +80,8 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
     if (energy_points_ > 0 && hit_points_ > 0) {
-        std::cout << name_ << "repaired itself and gained " << amount
-                  << "hit points\n";
+        std::cout << name_ << " repaired itself and gained " << amount
+                  << " hit points\n";
         energy_points_--;
     } else {
         std::cout << name_ << " can't repair itself, no energy points left\n";

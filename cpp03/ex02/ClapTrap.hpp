@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 15:15:47 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/31 14:06:01 by mmeising         ###   ########.fr       */
+/*   Created: 2022/07/15 22:56:41 by mmeising          #+#    #+#             */
+/*   Updated: 2022/07/25 17:36:21 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <iostream>
 #include <string>
 
-#include "ClapTrap.hpp"
-
-class ScavTrap : virtual public ClapTrap {
+class ClapTrap {
    public:
-    ScavTrap();
-    ScavTrap(ScavTrap const& src);
-    ScavTrap(std::string name);
-    ~ScavTrap();
+    ClapTrap();
+    ClapTrap(ClapTrap const& src);
+    ClapTrap(std::string name);
+    ~ClapTrap();
 
     void attack(const std::string& target);
-    void guardGate();
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 
-    ScavTrap& operator=(ScavTrap const& rhs);
+    ClapTrap& operator=(ClapTrap const& rhs);
 
-   private:
+   protected:
+    std::string name_;
+    int hit_points_;
+    int energy_points_;
+    int attack_dmg_;
 };
 
-#endif /* ****************************************************** SCAVTRAP_H */
+#endif /* ****************************************************** CLAPTRAP_H */

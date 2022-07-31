@@ -1,53 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 22:56:31 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/31 15:47:02 by mmeising         ###   ########.fr       */
+/*   Created: 2022/07/25 15:15:37 by mmeising          #+#    #+#             */
+/*   Updated: 2022/07/25 17:36:12 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ClapTrap::ClapTrap()
-    : name_("default_name"),
-      hit_points_(10),
-      energy_points_(10),
-      attack_dmg_(0) {
-    std::cout << "ClapTrap default constructor called\n";
+ScavTrap::ScavTrap() : ClapTrap() {
+    std::cout << "ScavTrap default constructor called\n";
+    name_ = "default_name";
+    hit_points_ = 100;
+    energy_points_ = 50;
+    attack_dmg_ = 20;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& src)
-    : name_(src.name_),
-      hit_points_(src.hit_points_),
-      energy_points_(src.energy_points_),
-      attack_dmg_(src.attack_dmg_) {
-    std::cout << "ClapTrap copy constructor called\n";
+ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap(src) {
+    std::cout << "ScavTrap copy constructor called\n";
+    name_ = src.name_;
+    hit_points_ = src.hit_points_;
+    energy_points_ = src.energy_points_;
+    attack_dmg_ = src.attack_dmg_;
 }
 
-ClapTrap::ClapTrap(std::string name)
-    : name_(name), hit_points_(10), energy_points_(10), attack_dmg_(0) {
-    std::cout << "ClapTrap named constructor called\n";
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+    std::cout << "ScavTrap named constructor called\n";
+    name_ = name;
+    hit_points_ = 100;
+    energy_points_ = 50;
+    attack_dmg_ = 20;
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ClapTrap::~ClapTrap() { std::cout << "ClapTrap default destructor called\n"; }
+ScavTrap::~ScavTrap() { std::cout << "ScavTrap default destructor called\n"; }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ClapTrap& ClapTrap::operator=(ClapTrap const& rhs) {
+ScavTrap& ScavTrap::operator=(ScavTrap const& rhs) {
     if (this != &rhs) {
         this->name_ = rhs.name_;
         this->hit_points_ = rhs.hit_points_;
@@ -61,9 +64,9 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& rhs) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void ClapTrap::attack(const std::string& target) {
+void ScavTrap::attack(const std::string& target) {
     if (energy_points_ > 0 && hit_points_ > 0) {
-        std::cout << "ClapTrap " << name_ << " attacks " << target
+        std::cout << "ScavTrap " << name_ << " attacks " << target
                   << ", causing " << attack_dmg_ << " points of damage\n";
         energy_points_--;
     } else {
@@ -72,20 +75,8 @@ void ClapTrap::attack(const std::string& target) {
     }
 }
 
-void ClapTrap::takeDamage(unsigned int amount) {
-    if (hit_points_ > 0) {
-        hit_points_ -= amount;
-    }
-}
-
-void ClapTrap::beRepaired(unsigned int amount) {
-    if (energy_points_ > 0 && hit_points_ > 0) {
-        std::cout << name_ << " repaired itself and gained " << amount
-                  << " hit points\n";
-        energy_points_--;
-    } else {
-        std::cout << name_ << " can't repair itself, no energy points left\n";
-    }
+void ScavTrap::guardGate() {
+    std::cout << "ScavTrap " << name_ << " is now in Gate keeper mode\n";
 }
 
 /*

@@ -1,53 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 22:56:31 by mmeising          #+#    #+#             */
-/*   Updated: 2022/07/31 15:47:02 by mmeising         ###   ########.fr       */
+/*   Created: 2022/07/31 15:06:13 by mmeising          #+#    #+#             */
+/*   Updated: 2022/07/31 15:09:23 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ClapTrap::ClapTrap()
-    : name_("default_name"),
-      hit_points_(10),
-      energy_points_(10),
-      attack_dmg_(0) {
-    std::cout << "ClapTrap default constructor called\n";
+FragTrap::FragTrap() : ClapTrap() {
+    std::cout << "FragTrap default constructor called\n";
+    name_ = "default_name";
+    hit_points_ = 100;
+    energy_points_ = 100;
+    attack_dmg_ = 30;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& src)
-    : name_(src.name_),
-      hit_points_(src.hit_points_),
-      energy_points_(src.energy_points_),
-      attack_dmg_(src.attack_dmg_) {
-    std::cout << "ClapTrap copy constructor called\n";
+FragTrap::FragTrap(const FragTrap& src) : ClapTrap(src) {
+    std::cout << "FragTrap copy constructor called\n";
+    name_ = src.name_;
+    hit_points_ = src.hit_points_;
+    energy_points_ = src.energy_points_;
+    attack_dmg_ = src.attack_dmg_;
 }
 
-ClapTrap::ClapTrap(std::string name)
-    : name_(name), hit_points_(10), energy_points_(10), attack_dmg_(0) {
-    std::cout << "ClapTrap named constructor called\n";
+FragTrap::FragTrap(std::string name) : ClapTrap(name) {
+    std::cout << "FragTrap named constructor called\n";
+    name_ = name;
+    hit_points_ = 100;
+    energy_points_ = 100;
+    attack_dmg_ = 30;
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ClapTrap::~ClapTrap() { std::cout << "ClapTrap default destructor called\n"; }
+FragTrap::~FragTrap() { std::cout << "FragTrap default destructor called\n"; }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ClapTrap& ClapTrap::operator=(ClapTrap const& rhs) {
+FragTrap& FragTrap::operator=(FragTrap const& rhs) {
     if (this != &rhs) {
         this->name_ = rhs.name_;
         this->hit_points_ = rhs.hit_points_;
@@ -61,9 +64,9 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& rhs) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void ClapTrap::attack(const std::string& target) {
+void FragTrap::attack(const std::string& target) {
     if (energy_points_ > 0 && hit_points_ > 0) {
-        std::cout << "ClapTrap " << name_ << " attacks " << target
+        std::cout << "FragTrap " << name_ << " attacks " << target
                   << ", causing " << attack_dmg_ << " points of damage\n";
         energy_points_--;
     } else {
@@ -72,20 +75,8 @@ void ClapTrap::attack(const std::string& target) {
     }
 }
 
-void ClapTrap::takeDamage(unsigned int amount) {
-    if (hit_points_ > 0) {
-        hit_points_ -= amount;
-    }
-}
-
-void ClapTrap::beRepaired(unsigned int amount) {
-    if (energy_points_ > 0 && hit_points_ > 0) {
-        std::cout << name_ << " repaired itself and gained " << amount
-                  << " hit points\n";
-        energy_points_--;
-    } else {
-        std::cout << name_ << " can't repair itself, no energy points left\n";
-    }
+void FragTrap::highFivesGuys() {
+    std::cout << "FragTrap " << name_ << ": \"High fives everyone!\"\n";
 }
 
 /*
