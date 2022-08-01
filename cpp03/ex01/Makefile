@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 22:48:32 by mmeising          #+#    #+#              #
-#    Updated: 2022/07/25 17:28:11 by mmeising         ###   ########.fr        #
+#    Updated: 2022/08/01 13:07:45 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME := scav
 
 CC := c++
-CFLAGS := -Wall -Wextra
+CFLAGS := -Wall -Wextra -Werror
 
 SRC := main.cpp ClapTrap.cpp ScavTrap.cpp
 
