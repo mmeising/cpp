@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 15:30:57 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/10 15:38:42 by mmeising         ###   ########.fr       */
+/*   Created: 2022/08/01 15:30:33 by mmeising          #+#    #+#             */
+/*   Updated: 2022/08/01 16:32:25 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog() {
-    std::cout << "Dog default constructor called\n";
-    type_ = "Dog";
+WrongCat::WrongCat() {
+    std::cout << "WrongCat default constructor called\n";
+    type_ = "WrongCat";
 }
 
-Dog::Dog(const Dog& src) {
-    std::cout << "Dog copy constructor called\n";
+WrongCat::WrongCat(const WrongCat& src) {
+    std::cout << "WrongCat copy constructor called\n";
     type_ = src.type_;
 }
 
@@ -30,20 +30,20 @@ Dog::Dog(const Dog& src) {
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog() { std::cout << "Dog default destructor called\n"; }
+WrongCat::~WrongCat() { std::cout << "WrongCat default destructor called\n"; }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog& Dog::operator=(Dog const& rhs) {
+WrongCat& WrongCat::operator=(WrongCat const& rhs) {
     if ( this != &rhs ) {
         type_ = rhs.type_;
     }
     return *this;
 }
 
-// std::ostream& operator<<(std::ostream& o, Dog const& i) {
+// std::ostream& operator<<(std::ostream& o, WrongCat const& i) {
 //     // o << "Value = " << i.getValue();
 //     return o;
 // }
@@ -52,12 +52,12 @@ Dog& Dog::operator=(Dog const& rhs) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Dog::makeSound() const { std::cout << "woof\n"; }
+void WrongCat::makeSound() const { std::cout << "meow\n"; }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Dog::getType() const { return type_; }
+std::string WrongCat::getType() const { return type_; }
 
 /* ************************************************************************ */

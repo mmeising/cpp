@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 15:34:39 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/10 15:39:49 by mmeising         ###   ########.fr       */
+/*   Created: 2022/08/01 15:19:09 by mmeising          #+#    #+#             */
+/*   Updated: 2022/08/10 17:49:34 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef WRONG_ANIMAL_HPP
+#define WRONG_ANIMAL_HPP
 
 #include <iostream>
 #include <string>
 
-#include "Animal.hpp"
+class WrongAnimal {
+   protected:
+    std::string type_;
 
-class Dog : virtual public Animal {
    public:
-    Dog();
-    Dog(Dog const& src);
-    ~Dog();
+    WrongAnimal();
+    WrongAnimal(WrongAnimal const& src);
+    ~WrongAnimal();
 
     void makeSound() const;
+
     std::string getType() const;
 
-    Dog& operator=(Dog const& rhs);
+    WrongAnimal& operator=(WrongAnimal const& rhs);
 
    private:
 };
 
-// std::ostream& operator<<(std::ostream& o, Dog const& i);
+// std::ostream& operator<<(std::ostream& o, Animal const& i);
 
-#endif /* *********************************************************** DOG_H */
+#endif /* ******************************************************** ANIMAL_H */

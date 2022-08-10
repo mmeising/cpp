@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongDog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,19 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongDog.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog() {
-    std::cout << "Dog default constructor called\n";
-    type_ = "Dog";
+WrongDog::WrongDog() {
+    std::cout << "WrongDog default constructor called\n";
+    type_ = "WrongDog";
 }
 
-Dog::Dog(const Dog& src) {
-    std::cout << "Dog copy constructor called\n";
+WrongDog::WrongDog(const WrongDog& src) {
+    std::cout << "WrongDog copy constructor called\n";
     type_ = src.type_;
 }
 
@@ -30,20 +30,20 @@ Dog::Dog(const Dog& src) {
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog() { std::cout << "Dog default destructor called\n"; }
+WrongDog::~WrongDog() { std::cout << "WrongDog default destructor called\n"; }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog& Dog::operator=(Dog const& rhs) {
+WrongDog& WrongDog::operator=(WrongDog const& rhs) {
     if ( this != &rhs ) {
         type_ = rhs.type_;
     }
     return *this;
 }
 
-// std::ostream& operator<<(std::ostream& o, Dog const& i) {
+// std::ostream& operator<<(std::ostream& o, WrongDog const& i) {
 //     // o << "Value = " << i.getValue();
 //     return o;
 // }
@@ -52,12 +52,12 @@ Dog& Dog::operator=(Dog const& rhs) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Dog::makeSound() const { std::cout << "woof\n"; }
+void WrongDog::makeSound() const { std::cout << "woof\n"; }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Dog::getType() const { return type_; }
+std::string WrongDog::getType() const { return type_; }
 
 /* ************************************************************************ */

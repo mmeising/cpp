@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 15:19:09 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/01 16:51:44 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/08/10 16:54:28 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Animal {
    public:
     Animal();
     Animal(Animal const& src);
-    ~Animal();
+    virtual ~Animal();
 
     virtual void makeSound() const;
 

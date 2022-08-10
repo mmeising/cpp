@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 15:34:39 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/10 15:39:49 by mmeising         ###   ########.fr       */
+/*   Created: 2022/08/01 15:34:48 by mmeising          #+#    #+#             */
+/*   Updated: 2022/08/10 17:46:14 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef WRONG_CAT_HPP
+#define WRONG_CAT_HPP
 
 #include <iostream>
 #include <string>
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : virtual public Animal {
+class WrongCat : public WrongAnimal {
    public:
-    Dog();
-    Dog(Dog const& src);
-    ~Dog();
+    WrongCat();
+    WrongCat(WrongCat const& src);
+    ~WrongCat();
 
     void makeSound() const;
+
     std::string getType() const;
 
-    Dog& operator=(Dog const& rhs);
+    WrongCat& operator=(WrongCat const& rhs);
 
    private:
 };
 
-// std::ostream& operator<<(std::ostream& o, Dog const& i);
+// std::ostream& operator<<(std::ostream& o, Cat const& i);
 
-#endif /* *********************************************************** DOG_H */
+#endif /* *********************************************************** CAT_H */

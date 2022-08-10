@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 15:30:57 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/10 15:38:42 by mmeising         ###   ########.fr       */
+/*   Created: 2022/08/01 15:18:57 by mmeising          #+#    #+#             */
+/*   Updated: 2022/08/10 17:48:27 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongAnimal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog() {
-    std::cout << "Dog default constructor called\n";
-    type_ = "Dog";
-}
+WrongAnimal::WrongAnimal() { std::cout << "Wrong Animal default constructor called\n"; }
 
-Dog::Dog(const Dog& src) {
-    std::cout << "Dog copy constructor called\n";
+WrongAnimal::WrongAnimal(const WrongAnimal& src) {
+    std::cout << "Wrong Animal copy constructor called\n";
     type_ = src.type_;
 }
 
@@ -30,20 +27,20 @@ Dog::Dog(const Dog& src) {
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog() { std::cout << "Dog default destructor called\n"; }
+WrongAnimal::~WrongAnimal() { std::cout << "Wrong Animal default destructor called\n"; }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog& Dog::operator=(Dog const& rhs) {
-    if ( this != &rhs ) {
+WrongAnimal& WrongAnimal::operator=(WrongAnimal const& rhs) {
+    if (this != &rhs) {
         type_ = rhs.type_;
     }
     return *this;
 }
 
-// std::ostream& operator<<(std::ostream& o, Dog const& i) {
+// std::ostream& operator<<(std::ostream& o, Animal const& i) {
 //     // o << "Value = " << i.getValue();
 //     return o;
 // }
@@ -52,12 +49,14 @@ Dog& Dog::operator=(Dog const& rhs) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Dog::makeSound() const { std::cout << "woof\n"; }
+void WrongAnimal::makeSound() const {
+    std::cout << "I'm a Wrong animal, I don't make a sound\n";
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Dog::getType() const { return type_; }
+std::string WrongAnimal::getType() const { return type_; }
 
 /* ************************************************************************ */
