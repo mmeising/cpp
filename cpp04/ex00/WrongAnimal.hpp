@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 15:19:09 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/10 17:49:34 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/08/30 20:39:35 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class WrongAnimal {
    public:
     WrongAnimal();
     WrongAnimal(WrongAnimal const& src);
-    ~WrongAnimal();
+    virtual ~WrongAnimal();
 
     void makeSound() const;
 
