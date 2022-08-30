@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongCat::WrongCat() {
+WrongCat::WrongCat(void) {
     std::cout << "WrongCat default constructor called\n";
     type_ = "WrongCat";
 }
@@ -30,7 +30,7 @@ WrongCat::WrongCat(const WrongCat& src) {
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-WrongCat::~WrongCat() { std::cout << "WrongCat default destructor called\n"; }
+WrongCat::~WrongCat(void) { std::cout << "WrongCat default destructor called\n"; }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
@@ -52,12 +52,12 @@ WrongCat& WrongCat::operator=(WrongCat const& rhs) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void WrongCat::makeSound() const { std::cout << "meow\n"; }
+void WrongCat::makeSound(void) const { std::cout << "meow\n"; }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string WrongCat::getType() const { return type_; }
+std::string WrongCat::getType(void) const { return type_; }
 
 /* ************************************************************************ */

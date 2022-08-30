@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 16:05:12 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/10 17:44:31 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/08/30 16:54:29 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
-#include "WrongDog.hpp"
 
 int main() {
     const Animal* meta = new Animal();
@@ -36,17 +35,13 @@ int main() {
 
     const WrongAnimal* Wmeta = new WrongAnimal();
     const WrongAnimal* Wi = new WrongCat();
-    const WrongAnimal* Wj = new WrongDog();
 
     std::cout << Wi->getType() << " " << std::endl;
-    std::cout << Wj->getType() << " " << std::endl;
 
     Wi->makeSound();
-    Wj->makeSound();
     Wmeta->makeSound();
 
     delete Wmeta;
-    delete Wj;
     delete Wi;
 
     return 0;

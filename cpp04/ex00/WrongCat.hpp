@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 15:34:48 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/10 17:46:14 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/08/30 16:53:15 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 
 class WrongCat : public WrongAnimal {
    public:
-    WrongCat();
+    WrongCat(void);
     WrongCat(WrongCat const& src);
-    ~WrongCat();
+    ~WrongCat(void);
 
-    void makeSound() const;
+    void makeSound(void) const;
 
-    std::string getType() const;
+    std::string getType(void) const;
 
     WrongCat& operator=(WrongCat const& rhs);
 

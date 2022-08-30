@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/01 15:17:44 by mmeising          #+#    #+#              #
-#    Updated: 2022/08/10 17:41:40 by mmeising         ###   ########.fr        #
+#    Updated: 2022/08/30 16:54:38 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ NAME := a.out
 CC := c++
 CFLAGS := -Wall -Wextra -Werror
 
-SRC := main.cpp Animal.cpp Cat.cpp Dog.cpp
-SRC_WRONG := WrongAnimal.cpp WrongCat.cpp WrongDog.cpp
+SRC := 	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+
 
 OBJ_DIR := _obj
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))

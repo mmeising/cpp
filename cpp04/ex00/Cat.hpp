@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 15:34:48 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/01 16:32:12 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/08/30 18:35:18 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #include "Animal.hpp"
 
-class Cat : virtual public Animal {
+class Cat : public Animal {
    public:
     Cat();
     Cat(Cat const& src);
