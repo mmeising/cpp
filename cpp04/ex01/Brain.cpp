@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:22:08 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/31 15:31:49 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/06 13:10:37 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ Brain::Brain() {
 
 Brain::Brain(const Brain& src) {
     std::cout << "Brain copy constructor called\n";
-    // stuff
+    for (int i = 0; i < 100; i++) {
+        ideas_[i] = src.ideas_[i];
+    }
 }
 
 /*
@@ -39,13 +41,14 @@ Brain::~Brain() {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-// Brain& Brain::operator=(Brain const& rhs) {
-//     // if ( this != &rhs )
-//     //{
-//     // this->_value = rhs.getValue();
-//     //}
-//     return *this;
-// }
+Brain& Brain::operator=(Brain const& rhs) {
+    if (this != &rhs) {
+        for (int i = 0; i < 100; i++) {
+            ideas_[i] = rhs.ideas_[i];
+        }
+    }
+    return *this;
+}
 
 // std::ostream &			operator<<( std::ostream & o, Brain
 // const
@@ -64,5 +67,20 @@ Brain::~Brain() {
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+std::string* Brain::getIdeas() { return ideas_; }
+
+std::string Brain::getIdea(int i) {
+    if (i >= 0 && i <= 99) {
+        return ideas_[i];
+    }
+    return NULL;
+}
+
+void Brain::setIdea(int i, std::string idea) {
+    if (i >= 0 && i <= 99) {
+        ideas_[i] = idea;
+    }
+}
 
 /* ************************************************************************ */

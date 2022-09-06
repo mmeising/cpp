@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/01 15:17:44 by mmeising          #+#    #+#              #
-#    Updated: 2022/08/31 16:58:36 by mmeising         ###   ########.fr        #
+#    Updated: 2022/09/06 13:31:07 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME := a.out
 CC := c++
 CFLAGS := -Wall -Wextra -Werror
 
-SRC := 	main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRC := 	main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
 
 OBJ_DIR := _obj

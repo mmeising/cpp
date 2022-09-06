@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 15:34:48 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/30 18:35:18 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/06 13:14:50 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string>
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal {
    public:
@@ -27,10 +28,12 @@ class Cat : public Animal {
     void makeSound() const;
 
     std::string getType() const;
+    Brain* getBrain();
 
     Cat& operator=(Cat const& rhs);
 
    private:
+    Brain* brain_;
 };
 
 // std::ostream& operator<<(std::ostream& o, Cat const& i);

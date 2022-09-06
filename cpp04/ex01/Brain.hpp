@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:22:18 by mmeising          #+#    #+#             */
-/*   Updated: 2022/08/31 17:51:46 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/06 13:09:53 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ class Brain {
     ~Brain();
 
     Brain& operator=(Brain const& rhs);
+    std::string* getIdeas();
+    std::string getIdea(int i);
+
+    void setIdea(int i, std::string idea);
 
    private:
     std::string ideas_[100];
