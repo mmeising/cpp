@@ -6,32 +6,39 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:15:16 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/06 18:52:00 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/09 18:52:41 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-bool Bureaucrat::messages_ = false;
+bool Bureaucrat::messages_ = true;
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Bureaucrat::Bureaucrat() {
+Bureaucrat::Bureaucrat() : name_("default"), grade_(150) {
     if (messages_) {
         std::cout << "Bureaucrat default constructor called\n";
     }
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
-    : name_(name), grade_(grade) {
+Bureaucrat::Bureaucrat(std::string name, int grade) : name_(name) {
+    if (grade < 1) {
+        throw GradeTooHighException();
+    } else if (grade > 150) {
+        throw GradeTooLowException();
+    } else {
+        grade_ = grade;
+    }
     if (messages_) {
-        std::cout << "Bureaucrat named + graded constructor called\n";
+        std::cout << "Bureaucrat name + grade constructor called\n";
     }
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src) {
+Bureaucrat::Bureaucrat(const Bureaucrat& src)
+    : name_(src.name_), grade_(src.grade_) {
     if (messages_) {
         std::cout << "Bureaucrat copy constructor called\n";
     }
@@ -52,15 +59,14 @@ Bureaucrat::~Bureaucrat() {
 */
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const& rhs) {
-    // if ( this != &rhs )
-    //{
-    // this->_value = rhs.getValue();
-    //}
+    if (this != &rhs) {
+        grade_ = rhs.getGrade();
+    }
     return *this;
 }
 
 std::ostream& operator<<(std::ostream& o, Bureaucrat const& i) {
-    // o << "Value = " << i.getValue();
+    o << i.getName() << ", bureaucrat grade " << i.getGrade() << ".\n";
     return o;
 }
 
@@ -68,8 +74,27 @@ std::ostream& operator<<(std::ostream& o, Bureaucrat const& i) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void Bureaucrat::incrementGrade() {
+    if (grade_ <= 1) {
+        throw GradeTooHighException();
+    } else {
+        grade_--;
+    }
+}
+
+void Bureaucrat::decrementGrade() {
+    if (grade_ >= 150) {
+        throw GradeTooLowException();
+    } else {
+        grade_++;
+    }
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+std::string Bureaucrat::getName() const { return name_; }
+int Bureaucrat::getGrade() const { return grade_; }
 
 /* ************************************************************************ */
