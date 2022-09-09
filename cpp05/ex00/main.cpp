@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:15:27 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/09 18:55:26 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/09 18:57:16 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,5 @@ int main() {
     std::cout << Alex;
     std::cout << Bernie;
     std::cout << "\n";
+    return 0;
 }
