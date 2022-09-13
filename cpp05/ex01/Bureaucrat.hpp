@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:15:01 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/09 18:49:55 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:06:39 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,14 @@
 
 class Bureaucrat {
    public:
-    class GradeTooHighException : public std::exception {};
-    class GradeTooLowException : public std::exception {};
+    class GradeTooHighException : public std::exception {
+       public:
+        const char* what() const throw();
+    };
+    class GradeTooLowException : public std::exception {
+       public:
+        const char* what() const throw();
+    };
     Bureaucrat();
     Bureaucrat(std::string name, int grade);
     Bureaucrat(Bureaucrat const& src);
