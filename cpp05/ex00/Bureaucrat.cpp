@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:15:16 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/09 18:52:41 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:03:50 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,17 @@ void Bureaucrat::decrementGrade() {
 
 std::string Bureaucrat::getName() const { return name_; }
 int Bureaucrat::getGrade() const { return grade_; }
+
+/*
+** -------------------------------- EXCEPTIONS --------------------------------
+*/
+
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+    return "GradeTooHighException: Grade was set to higher than 1.";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+    return "GradeTooLowException: Grade was set to lower than 150.";
+}
 
 /* ************************************************************************ */

@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:15:27 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/09 18:57:16 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:06:02 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ int main() {
     catch (Bureaucrat::GradeTooHighException& e) {
         //catching only this specific Exception
         std::cout << "catch block from GradeTooHighException\n";
+        std::cout << e.what() << std::endl;
     }
     catch (std::exception& e) {
         //catching any other exception that is like std::exception
         std::cout << "catch block from std::exception\n";
+        std::cout << e.what() << std::endl;
     }
     std::cout << "\n";
     std::cout << Alex;
@@ -41,7 +43,7 @@ int main() {
         Bernie.decrementGrade();
     }
     catch (std::exception& e) {
-        std::cout << "catch block after increment/decrement\n";
+        std::cout << e.what() << std::endl;
     }
     std::cout << "\n";
     std::cout << Alex;
