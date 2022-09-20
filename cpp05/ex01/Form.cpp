@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 21:51:00 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/13 17:35:48 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/16 15:49:21 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Form::Form()
 }
 
 Form::Form(std::string name, int req_sign, int req_exec)
-    : name_(name), req_sign_(req_sign), req_exec_(req_exec) {
+    : name_(name), signed_(false), req_sign_(req_sign), req_exec_(req_exec) {
     if (req_sign_ < 1 || req_exec_ < 1) {
         throw(Form::GradeTooHighException());
     } else if (req_sign_ > 150 || req_exec_ > 150) {
@@ -75,7 +75,13 @@ Form& Form::operator=(Form const& rhs) {
 
 std::ostream& operator<<(std::ostream& o, Form const& i) {
     o << i.getName() << " requires grade " << i.getReqExec()
-      << " to be executed and grade " << i.getReqSign() << " to be signed";
+      << " to be executed and grade " << i.getReqSign()
+      << " to be signed. It is ";
+    if (i.getSigned() == true) {
+        o << "already signed";
+    } else {
+        o << "not signed";
+    }
     return o;
 }
 
@@ -84,10 +90,12 @@ std::ostream& operator<<(std::ostream& o, Form const& i) {
 */
 
 void Form::beSigned(Bureaucrat& signee) {
-    if (signee.getGrade() <= getReqSign()) {
+    if (signed_ == false && signee.getGrade() <= getReqSign()) {
         signed_ = true;
-    } else {
+    } else if (signee.getGrade() > getReqSign()) {
         throw(Form::GradeTooLowException());
+    } else if (signed_ == true) {
+        throw(Form::AlreadySignedException());
     }
 }
 
@@ -110,6 +118,10 @@ const char* Form::GradeTooHighException::what() const throw() {
 
 const char* Form::GradeTooLowException::what() const throw() {
     return "GradeTooLowException: Grade was set to lower than 150.";
+}
+
+const char* Form::AlreadySignedException::what() const throw() {
+    return "AlreadySignedException: The form was already signed.";
 }
 
 /* ************************************************************************ */
