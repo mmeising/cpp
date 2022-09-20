@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 21:50:43 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/13 17:35:19 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/16 15:30:41 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ class Form {
         virtual const char* what() const throw();
     };
     class GradeTooLowException : public std::exception {
+       public:
+        virtual const char* what() const throw();
+    };
+    class AlreadySignedException : public std::exception {
        public:
         virtual const char* what() const throw();
     };
