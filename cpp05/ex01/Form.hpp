@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 21:50:43 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/16 15:30:41 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/21 21:42:17 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Form {
     Form();
     Form(std::string name, int req_sign, int req_exec);
     Form(Form const& src);
-    ~Form();
+    virtual ~Form();
 
     std::string const getName() const;
     bool getSigned() const;
