@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 18:32:23 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/20 21:38:07 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:50:33 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(
     std::cout << "As every variable but the signed status is const, only that "
                  "can be changed\n";
     if (ShrubberyCreationForm::messages_) {
-        std::cout << "Form assignment operator called\n";
+        std::cout << "ShrubberyCreationForm assignment operator called\n";
     }
     return *this;
 }

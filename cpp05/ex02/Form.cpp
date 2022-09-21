@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 21:51:00 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/20 21:17:07 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:56:10 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Form::Form(std::string name, int req_sign, int req_exec, std::string target)
         throw(Form::GradeTooLowException());
     }
     if (Form::messages_) {
-        std::cout << "Form constructor with values called\n";
+        std::cout << "Form constructor called\n";
     }
 }
 

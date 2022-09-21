@@ -1,24 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/21 18:26:55 by mmeising          #+#    #+#             */
+/*   Updated: 2022/09/21 19:53:49 by mmeising         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
 
-class RobotomyRequestForm
-{
+#include "Form.hpp"
 
-	public:
+class RobotomyRequestForm : public Form {
+   public:
+    RobotomyRequestForm();
+    RobotomyRequestForm(std::string target);
+    RobotomyRequestForm(RobotomyRequestForm const& src);
+    ~RobotomyRequestForm();
 
-		RobotomyRequestForm();
-		RobotomyRequestForm( RobotomyRequestForm const & src );
-		~RobotomyRequestForm();
+    RobotomyRequestForm& operator=(RobotomyRequestForm const& rhs);
 
-		RobotomyRequestForm &		operator=( RobotomyRequestForm const & rhs );
+    void execute(Bureaucrat const& executor) const;
 
-	private:
-
+   private:
 };
 
-std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i );
+std::ostream& operator<<(std::ostream& o, RobotomyRequestForm const& i);
 
-#endif /* ********************************************* ROBOTOMYREQUESTFORM_H */
+#endif /* ******************************************* ROBOTOMYREQUESTFORM_H */

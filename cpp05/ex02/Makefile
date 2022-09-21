@@ -6,7 +6,7 @@
 #    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/09 18:15:33 by mmeising          #+#    #+#              #
-#    Updated: 2022/09/20 21:36:49 by mmeising         ###   ########.fr        #
+#    Updated: 2022/09/21 19:44:26 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ NAME := a.out
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
 
-SRC := 	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
+SRC := 	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 OBJ_DIR := _obj
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))

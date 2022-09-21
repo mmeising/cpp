@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:15:16 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/20 18:24:43 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/21 20:00:50 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name_(name) {
         grade_ = grade;
     }
     if (Bureaucrat::messages_) {
-        std::cout << "Bureaucrat name + grade constructor called\n";
+        std::cout << "Bureaucrat constructor called\n";
     }
 }
 
