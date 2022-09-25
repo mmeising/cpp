@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Conversion.hpp                                     :+:      :+:    :+:   */
+/*   conversion.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:26:55 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/23 20:42:01 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/26 00:18:19 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 #define CONVERSION_HPP
 
 #include <iostream>
+#include <limits>
 #include <string>
+#include <cstdlib> //atoi
 
 void printAsChar(std::string input);
 void printAsInt(std::string input);

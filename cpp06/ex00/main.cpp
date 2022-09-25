@@ -6,12 +6,13 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:58:20 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/23 20:49:40 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/25 22:39:21 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include "conversion.hpp"
 
 int main(int argc, char** argv) {
     if (argc != 2) {
@@ -21,6 +22,21 @@ int main(int argc, char** argv) {
     }
     std::string input(argv[1]);
     std::cout << "input was: " << input << "\n";
-    std::cout << "char: " << static_cast<char>(input[0]) << "\n";
+
+    std::cout << "char: ";
+    printAsChar(input);
+    std::cout << "\n";
+
+    std::cout << "int: ";
+    printAsInt(input);
+    std::cout << "\n";
+
+    std::cout << "float: ";
+    printAsFloat(input);
+    std::cout << "\n";
+
+    std::cout << "double: ";
+    printAsDouble(input);
+    std::cout << "\n";
     return (0);
 }
