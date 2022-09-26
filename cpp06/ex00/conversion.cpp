@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:37:25 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/26 00:34:50 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/26 13:42:41 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool isNanOrInf(std::string& input) {
         input = "nan";
         return (true);
     } else if (input == "+inf" || input == "+inff") {
-        input = "+inf)";
+        input = "+inf";
         return (true);
     } else if (input == "-inf" || input == "-inff") {
         input = "-inf";
@@ -35,7 +35,7 @@ bool isNanOrInfFloat(std::string& input) {
         input = "nanf";
         return (true);
     } else if (input == "+inf" || input == "+inff") {
-        input = "+inff)";
+        input = "+inff";
         return (true);
     } else if (input == "-inf" || input == "-inff") {
         input = "-inff";
@@ -105,7 +105,6 @@ void printAsFloat(std::string input) {
     float x;
 
     if (isNanOrInfFloat(input)) {
-        std::cout <<"YES THIS WAS THE STRING STUFF ";
         std::cout << input;
     } else if (CheckIfNum(input)) {
         x = static_cast<float>(std::atof(input.c_str()));

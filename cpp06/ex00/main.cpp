@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:58:20 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/25 22:39:21 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/26 13:43:34 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int main(int argc, char** argv) {
         return (1);
     }
     std::string input(argv[1]);
-    std::cout << "input was: " << input << "\n";
 
     std::cout << "char: ";
     printAsChar(input);
