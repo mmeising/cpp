@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 14:19:56 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/26 14:30:46 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/26 15:48:27 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@
 
 #include "Base.hpp"
 
-class A : public Base {
-   public:
-    A();
-    ~A();
-
-   private:
-};
+class A : public Base {};
 
 #endif /* ************************************************************* A_H */
