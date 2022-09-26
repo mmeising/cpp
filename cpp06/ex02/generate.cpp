@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 14:22:20 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/26 15:44:59 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/26 16:05:18 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void identify(Base* p) {
 
 void identify(Base& p) {
     void* x = nullptr;
-    Base& y = (Base&)x;
+    Base& y = reinterpret_cast<Base&>(x);
 
     try {
         y = dynamic_cast<A&>(p);
