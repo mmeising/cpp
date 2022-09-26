@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:37:25 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/26 13:42:41 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/26 13:46:05 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,12 @@ void printAsInt(std::string input) {
 
     if (CheckIfNum(input)) {
         x = std::atof(input.c_str());
-        if (x <= std::numeric_limits<int>::max() && x >= std::numeric_limits<int>::min())
+        if (x <= std::numeric_limits<int>::max() &&
+            x >= std::numeric_limits<int>::min())
             std::cout << static_cast<int>(x);
         else
             std::cout << "impossible";
-    }
-    else
+    } else
         std::cout << "impossible";
 }
 
@@ -125,8 +125,9 @@ void printAsDouble(std::string input) {
     } else if (CheckIfNum(input)) {
         x = static_cast<double>(std::atof(input.c_str()));
         std::cout << x;
-        if (x <= std::numeric_limits<int>::max() && x >= std::numeric_limits<int>::min()
-            && x - static_cast<int>(x) == 0) {
+        if (x <= std::numeric_limits<int>::max() &&
+            x >= std::numeric_limits<int>::min() &&
+            x - static_cast<int>(x) == 0) {
             std::cout << ".0";
         }
     } else
