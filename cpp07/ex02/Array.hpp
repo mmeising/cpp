@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 23:07:12 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/27 00:06:52 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/27 19:48:32 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class Array {
         delete[] arr_;
     };
 
-    T& operator=(Array const& rhs) {
+    Array& operator=(Array const& rhs) {
         std::cout << "Array assignment operator called\n";
         arr_ = new T[rhs.size()];
         for (unsigned int i = 0; i < rhs.size(); i++) {
