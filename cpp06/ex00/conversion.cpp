@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:37:25 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/26 13:46:05 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:54:43 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void printAsChar(std::string input) {
     if (CheckIfNum(input)) {
         x = std::atoi(input.c_str());
         if (x >= 32 && x <= 126)
-            std::cout << '\'' << x << '\'';
+            std::cout << '\'' << static_cast<char>(x) << '\'';
         else
             std::cout << "Non displayable";
     } else if (isNanOrInf(input) || isNanOrInfFloat(input))
