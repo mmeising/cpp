@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:37:25 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/28 15:54:43 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:08:50 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,9 @@ void printAsFloat(std::string input) {
     } else if (CheckIfNum(input)) {
         x = static_cast<float>(std::atof(input.c_str()));
         std::cout << x;
-        if (x - static_cast<int>(x) == 0) {
+        if (x <= 999999 &&
+            x >= -999999 &&
+            x - static_cast<int>(x) == 0) {
             std::cout << ".0f";
         } else
             std::cout << "f";
@@ -125,8 +127,8 @@ void printAsDouble(std::string input) {
     } else if (CheckIfNum(input)) {
         x = static_cast<double>(std::atof(input.c_str()));
         std::cout << x;
-        if (x <= std::numeric_limits<int>::max() &&
-            x >= std::numeric_limits<int>::min() &&
+        if (x <= 999999 &&
+            x >= -999999 &&
             x - static_cast<int>(x) == 0) {
             std::cout << ".0";
         }
