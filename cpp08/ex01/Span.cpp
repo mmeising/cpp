@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:49:59 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/30 02:38:11 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/30 03:37:55 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int Span::shortestSpan() const {
 
     second_to_last--;
     if (current_ < 2) throw(std::exception());
-    int i = 0;
     while (start != second_to_last) {
         comp = start;
         comp++;
@@ -77,11 +76,9 @@ int Span::shortestSpan() const {
             if (temp < 0) temp *= -1;
             if (temp < shortest_span) shortest_span = temp;
             comp++;
-            i++;
         }
         start++;
     }
-    std::cout << "WOOOW " << i << "\n";
     if (shortest_span == INT_MAX) shortest_span = 0;
     return (shortest_span);
 }

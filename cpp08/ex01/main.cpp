@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:57:23 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/30 02:38:59 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/30 03:37:39 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main() {
 
     {
         Span huge(20000);
-        std::vector<int> fill(10, 50);
+        std::vector<int> fill(19000, 50);
 
         huge.addNumber<std::vector<int> >(fill.begin(), fill.end());
         huge.addNumber(10);
