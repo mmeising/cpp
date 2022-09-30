@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:49:59 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/30 00:16:31 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/30 02:38:11 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,14 @@ Span& Span::operator=(Span const& rhs) {
 */
 
 void Span::addNumber(int x) {
-    if (current_ < cap_) {
-        vec_.push_back(x);
-        current_++;
-    } else
-        throw std::exception();
-}
-
-template <typename T>
-void Span::addRange(typename T::const_iterator start, typename T::const_iterator end) {
-    while (start != end) {
+    try {
         if (current_ < cap_) {
-            vec_.push_back(*start);
-            start++;
+            vec_.push_back(x);
             current_++;
         } else
             throw std::exception();
+    } catch (std::exception& e) {
+        std::cout << "Error: Span has no space left\n";
     }
 }
 
@@ -76,6 +68,7 @@ int Span::shortestSpan() const {
 
     second_to_last--;
     if (current_ < 2) throw(std::exception());
+    int i = 0;
     while (start != second_to_last) {
         comp = start;
         comp++;
@@ -84,9 +77,11 @@ int Span::shortestSpan() const {
             if (temp < 0) temp *= -1;
             if (temp < shortest_span) shortest_span = temp;
             comp++;
+            i++;
         }
         start++;
     }
+    std::cout << "WOOOW " << i << "\n";
     if (shortest_span == INT_MAX) shortest_span = 0;
     return (shortest_span);
 }
@@ -109,5 +104,8 @@ int Span::longestSpan() const {
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+unsigned int Span::getCurrent() { return (current_); }
+unsigned int Span::getCap() { return (cap_); }
 
 /* ************************************************************************ */

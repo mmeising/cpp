@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:49:49 by mmeising          #+#    #+#             */
-/*   Updated: 2022/09/30 00:16:42 by mmeising         ###   ########.fr       */
+/*   Updated: 2022/09/30 02:27:12 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,17 @@ class Span {
     void addNumber(int x);
 
     template <typename T>
-    void addRange(typename T::const_iterator start, typename T::const_iterator end);
-
+    void addNumber(typename T::const_iterator start, typename T::const_iterator end) {
+        while (start != end) {
+        addNumber(*start);
+        start++;
+    }
+    };
     int shortestSpan() const;
     int longestSpan() const;
+
+    unsigned int getCurrent();
+    unsigned int getCap();
 
    private:
     std::vector<int> vec_;
