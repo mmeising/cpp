@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
+#    By: mniski <mniski@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 16:08:31 by mmeising          #+#    #+#              #
-#    Updated: 2023/03/14 12:33:22 by mmeising         ###   ########.fr        #
+#    Updated: 2023/04/01 15:18:32 by mniski           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,11 @@ VPATH := ./src/
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 INC := -I .
 
-NAME := ./projectname
+CXX := c++
 
-SRC := BitcoinExchange
+NAME := ./btc
+
+SRC := BitcoinExchange main
 SRC := $(SRC:%=%.cpp)
 
 OBJ := $(addprefix ./_obj/, $(SRC:.cpp=.o))
