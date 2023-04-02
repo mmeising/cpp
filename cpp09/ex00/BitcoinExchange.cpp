@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mniski <mniski@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: mmeising <mmeising@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 01:46:12 by mniski            #+#    #+#             */
-/*   Updated: 2023/04/01 23:28:25 by mniski           ###   ########.fr       */
+/*   Created: 2023/03/29 01:46:12 by mmeising          #+#    #+#             */
+/*   Updated: 2023/04/02 19:12:13 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

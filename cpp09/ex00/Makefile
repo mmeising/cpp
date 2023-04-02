@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mniski <mniski@student.42heilbronn.de>     +#+  +:+       +#+         #
+#    By: mmeising <mmeising@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 16:08:31 by mmeising          #+#    #+#              #
-#    Updated: 2023/04/01 15:18:32 by mniski           ###   ########.fr        #
+#    Updated: 2023/04/02 19:11:25 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRC := $(SRC:%=%.cpp)
 OBJ := $(addprefix ./_obj/, $(SRC:.cpp=.o))
 
 all: $(NAME)
-	# @$(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $^ $(INC) -o $@
