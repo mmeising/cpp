@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmeising <mmeising@student.42heilbronn.    +#+  +:+       +#+         #
+#    By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/02 22:21:18 by mmeising          #+#    #+#              #
-#    Updated: 2023/04/11 01:50:44 by mmeising         ###   ########.fr        #
+#    Updated: 2023/05/12 20:49:23 by mmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 VPATH := ./src/
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g
 INC := -I .
 
 CXX := c++

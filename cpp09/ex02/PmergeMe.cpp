@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 19:07:25 by mmeising          #+#    #+#             */
-/*   Updated: 2023/05/12 22:28:10 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/12 23:05:39 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,15 +180,25 @@ std::vector<int> PmergeMe::mergeVector(PmergeMe::vecVec& all) {
 void PmergeMe::sortVector(char** argv) {
     std::vector<int>    vec;
     PmergeMe::vecVec   all;
-    clock_t             t = clock();
+    clock_t             t_vector;
 
     if (!checkInput(argv))
         return;
     vec = fillVector(argv);
+    std::cout << "Before:\t";
+    printVector(vec);
+    vec.clear();
+
+    t_vector = clock();
+    vec = fillVector(argv);
     all = splitVector(vec);
     insertionVector(all);
     vec = mergeVector(all);
+    t_vector = clock() - t_vector;
+
+    std::cout << "\n\n\n\nAfter: ";
     printVector(vec);
-    t = clock() - t;
-    printf("sortVector took %lu clicks, %f seconds (%d clocks per second)\n", t, ((float)t) / CLOCKS_PER_SEC, CLOCKS_PER_SEC);
+
+    std::cout << "Time to process a range of\t" << vec.size() << " elements with std::vector : " << ((float)t_vector) / CLOCKS_PER_SEC << " seconds" << std::endl;
+    // printf("sortVector took %lu clicks, %f seconds (%d clocks per second)\n", t, ((float)t) / CLOCKS_PER_SEC, CLOCKS_PER_SEC);
 }
