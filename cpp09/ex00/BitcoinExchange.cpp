@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmeising <mmeising@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 01:46:12 by mmeising          #+#    #+#             */
-/*   Updated: 2023/04/02 19:12:13 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/12 12:38:49 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ void BitcoinExchange::printValues() const {
             std::cout << "Error: bad input => " << it_in->first << std::endl;
             continue;
         }
-        if (it_in->second > 10000) {
+        if (it_in->second > 1000) {
             std::cout << "Error: too large a number." << std::endl;
             continue;
         }
@@ -169,21 +169,6 @@ void BitcoinExchange::printValues() const {
         }
     }
 }
-
-// void BitcoinExchange::setInput(std::string const input_filename) {
-//     std::ifstream   input_file(input_filename.c_str());
-//     std::string     line;
-
-//     while (getline(input_file, line)) {
-//         size_t      pos      = line.find('|');
-//         std::string date_str = line.substr(0, pos);
-//         std::string val_str  = line.substr(pos + 1);
-
-//         if (!isValidDate(date_str)) {
-//             std::cout << "Invalid date: " << date_str << std::endl;
-//         }
-//     }
-// }
 
 void BitcoinExchange::printPairList(BitcoinExchange::list database) {
     for (BitcoinExchange::list::const_iterator it = database.begin(); it != database.end(); ++it) {
