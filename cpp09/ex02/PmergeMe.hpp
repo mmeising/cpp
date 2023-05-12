@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 19:07:28 by mmeising          #+#    #+#             */
-/*   Updated: 2023/05/12 18:24:56 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/12 22:19:24 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ class PmergeMe {
     vecVec              splitVector(std::vector<int> vec);
     vecVec              insertionVector(vecVec& all);
     void                insertionOneVector(std::vector<int>& vec);
+    std::vector<int>    mergeVector(vecVec& all);
+    std::vector<int>    mergeTwoVecs(std::vector<int> vec1, std::vector<int> vec2);
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmeising <mmeising@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 19:07:30 by mmeising          #+#    #+#             */
-/*   Updated: 2023/04/11 01:55:12 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/12 20:53:06 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main(int argc, char** argv) {
                     << "QoL tip (OSX):  /PmergeMe `jot -r 3000 1 100000 | tr '\\n' ' '`\n"
                     << "QoL tip (Unix): /PmergeMe `shuf -i 1-100000 -n 3000 | tr \"\\n\" \" \"`"
                     << std::endl;
+        return (1);
     }
     test.sortVector(&(argv[1]));
 }
