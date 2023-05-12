@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 01:46:12 by mmeising          #+#    #+#             */
-/*   Updated: 2023/05/12 12:38:49 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/12 13:18:07 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ bool BitcoinExchange::getFilled() const {
     return filled_;
 }
 
-bool isValidDate(std::string date) {
+bool isValidDate(const std::string& date) {
     int year, month, day;
 
     if (std::sscanf(date.c_str(), " %d-%d-%d ", &year, &month, &day) != 3)
