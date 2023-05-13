@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 01:46:12 by mmeising          #+#    #+#             */
-/*   Updated: 2023/05/13 15:12:14 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:32:28 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,8 +155,8 @@ void BitcoinExchange::printValues() const {
         }
 
         it_db = findPrevDate(it_in->first);
-        if (it_db == database_.end()) {//no date lower than input found
-            std::cout << "Error: no datapoint with date before this found." << std::endl;
+        if (it_db == database_.end()) {
+            std::cout << "Error: no datapoint with date before " << it_in->first << "found." << std::endl;
             continue;
         } else {
             std::cout << it_in->first << " => " << it_in->second * it_db->second << std::endl;
