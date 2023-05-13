@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 19:07:28 by mmeising          #+#    #+#             */
-/*   Updated: 2023/05/12 23:31:58 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/13 14:58:49 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include <vector>
 #include <deque>
 #include <ctime>
-
-// template <typename T>
-// void foo()
-// {
-//     if (typeid(T) == typeid(animal)) { /* ... */ }
-// }
 
 class PmergeMe {
     typedef std::vector<int>::iterator      vecIter;
