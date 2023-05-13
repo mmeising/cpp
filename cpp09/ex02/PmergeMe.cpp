@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 19:07:25 by mmeising          #+#    #+#             */
-/*   Updated: 2023/05/13 00:13:53 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/13 14:53:19 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,14 @@ std::vector<int> PmergeMe::fillVector(char** argv) {
 
 PmergeMe::vecVec PmergeMe::splitVector(std::vector<int> vec) {
     PmergeMe::vecVec all;
+    std::vector<int>::size_type size = 100;
 
-    while (vec.size() > 10) {
+    while (vec.size() > size) {
         PmergeMe::vecIter   vec_begin = vec.begin();
-        std::vector<int>    part(vec_begin, vec_begin + 10);
+        std::vector<int>    part(vec_begin, vec_begin + size);
 
-        vec.erase(vec_begin, vec_begin + 10);
-        part.reserve(11);
+        vec.erase(vec_begin, vec_begin + size);
+        part.reserve(size + 1);
         all.push_back(part);
     }
     all.push_back(vec);
@@ -98,8 +99,8 @@ PmergeMe::vecVec PmergeMe::splitVector(std::vector<int> vec) {
 }
 
 void PmergeMe::insertionOneVector(std::vector<int>& vec) {
-    PmergeMe::vecIter it;
-    PmergeMe::vecIter ite = vec.begin();
+    PmergeMe::vecIter it = vec.begin();
+    PmergeMe::vecIter ite = it;
 
     ite++;
     while (ite != vec.end()) {//cycling through entries of one vector
@@ -177,8 +178,6 @@ std::vector<int> PmergeMe::mergeVector(PmergeMe::vecVec& all) {
     return (*(all.begin()));
 }
 
-
-
 /*
 ***     DEQUE STARTING HERE
 */
@@ -198,12 +197,13 @@ std::deque<int> PmergeMe::fillDeque(char** argv) {
 
 PmergeMe::deqDeq PmergeMe::splitDeque(std::deque<int> deq) {
     PmergeMe::deqDeq all;
+    std::deque<int>::size_type size = 2;
 
-    while (deq.size() > 10) {
+    while (deq.size() > size) {
         PmergeMe::deqIter   vec_begin = deq.begin();
-        std::deque<int>    part(vec_begin, vec_begin + 10);
+        std::deque<int>    part(vec_begin, vec_begin + size);
 
-        deq.erase(vec_begin, vec_begin + 10);
+        deq.erase(vec_begin, vec_begin + size);
         all.push_back(part);
     }
     all.push_back(deq);
@@ -212,24 +212,12 @@ PmergeMe::deqDeq PmergeMe::splitDeque(std::deque<int> deq) {
 }
 
 void PmergeMe::insertionOneDeque(std::deque<int>& deq) {
-    std::cout << "insertionOneDeque called" << std::endl;
-    PmergeMe::deqIter it;
-    PmergeMe::deqIter ite = deq.begin();
+    PmergeMe::deqIter it = deq.begin();
+    PmergeMe::deqIter ite = it;
 
     ite++;
-    while (ite != deq.end()) {//cycling through entries of one deque
-        it = deq.begin();
-        while (it != ite) {
-            if (*ite < *it) {
-                int x = *ite;
-                deq.erase(ite);
-                deq.insert(it, x);//inserts value of ite before it position
-                //or value of its own position to the spot before, WTF?
-                break;
-            }
-            it++;
-        }
-        ite++;
+    if (ite != deq.end() && *ite < *it) {
+        std::swap(*ite, *it);
     }
 }
 
@@ -292,29 +280,29 @@ std::deque<int> PmergeMe::mergeDeque(PmergeMe::deqDeq& all) {
 }
 
 void PmergeMe::sortBoth(char** argv) {
-    // std::vector<int>    vec;
+    std::vector<int>    vec;
 
     if (!checkInput(argv))
         return;
-    // vec = fillVector(argv);
-    // std::cout << "Before:\t";
-    // printVector(vec);
-    // vec.clear();
+    vec = fillVector(argv);
+    std::cout << "Before:\t";
+    printVector(vec);
+    vec.clear();
 
 /*  VECTOR  */
 
-    // PmergeMe::vecVec    all_vec;
-    // clock_t             t_vector;
+    PmergeMe::vecVec    all_vec;
+    clock_t             t_vector;
 
-    // t_vector = clock();
-    // vec = fillVector(argv);
-    // all_vec = splitVector(vec);
-    // insertionVector(all_vec);
-    // vec = mergeVector(all_vec);
-    // t_vector = clock() - t_vector;
+    t_vector = clock();
+    vec = fillVector(argv);
+    all_vec = splitVector(vec);
+    insertionVector(all_vec);
+    vec = mergeVector(all_vec);
+    t_vector = clock() - t_vector;
 
-    // std::cout << "\n\n\n\nAfter: ";
-    // printVector(vec);
+    std::cout << "\nAfter: ";
+    printVector(vec);
 
 /*  DEQUE   */
 
@@ -329,11 +317,19 @@ void PmergeMe::sortBoth(char** argv) {
     deq = mergeDeque(all_deq);
     t_deque = clock() - t_deque;
 
-    // std::cout   << "Time to process a range of\t"
-    //             << vec.size() << " elements with std::vector : "
-    //             << ((float)t_vector) / CLOCKS_PER_SEC << " seconds" << std::endl;
+    // std::cout << "\nAfter: ";
+    // for (size_t i = 0; i < deq.size(); i++) {
+    //     std::cout << deq[i] << ", ";
+    // }
+    // std::cout << std::endl;
+
+/*  VECTOR  */
     std::cout   << "Time to process a range of\t"
-                << deq.size() << " elements with std::deque : "
+                << vec.size() << " elements with std::vector:\t"
+                << ((float)t_vector) / CLOCKS_PER_SEC << " seconds" << std::endl;
+
+/*  DEQUE   */
+    std::cout   << "Time to process a range of\t"
+                << deq.size() << " elements with std::deque:\t"
                 << ((float)t_deque) / CLOCKS_PER_SEC << " seconds" << std::endl;
-    // printf("sortVector took %lu clicks, %f seconds (%d clocks per second)\n", t, ((float)t) / CLOCKS_PER_SEC, CLOCKS_PER_SEC);
 }

@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 19:07:30 by mmeising          #+#    #+#             */
-/*   Updated: 2023/05/13 00:07:03 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/13 14:36:36 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int main(int argc, char** argv) {
 
     // std::deque<int> deq;
 
-
     // for (int i = 1; i < 6; i++) {
     //     deq.push_back(i);
     // }
@@ -47,17 +46,17 @@ int main(int argc, char** argv) {
     // std::cout << std::endl;
 
     // it = deq.begin();
-    // it++;
     // deq.insert(it, 10);
     // std::cout << "Deque contains:";
     // for (it = deq.begin(); it != deq.end(); ++it)
     //    std::cout << ' ' << *it;
     // std::cout << std::endl;
+    // return (0);
 
     if (argc < 2) {
         std::cout   << "Usage: ./PmergeMe 3 1 2 5 4\n"
-                    << "QoL tip (OSX):  /PmergeMe `jot -r 3000 1 100000 | tr '\\n' ' '`\n"
-                    << "QoL tip (Unix): /PmergeMe `shuf -i 1-100000 -n 3000 | tr \"\\n\" \" \"`"
+                    << "QoL tip (OSX):  ./PmergeMe `jot -r 3000 1 100000 | tr '\\n' ' '`\n"
+                    << "QoL tip (Unix): ./PmergeMe `shuf -i 1-100000 -n 3000 | tr \"\\n\" \" \"`"
                     << std::endl;
         return (1);
     }
