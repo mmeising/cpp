@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 01:46:12 by mmeising          #+#    #+#             */
-/*   Updated: 2023/05/12 13:18:07 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:12:14 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 BitcoinExchange::BitcoinExchange() {}
 
 BitcoinExchange::BitcoinExchange(std::string input) : filled_(false) {
-    std::cout << "Constructor argument is " << input << std::endl;
     if (!setDatabase(database_, "data.csv", ',', true))
         return;
     if (!setDatabase(input_, input, '|', false))
@@ -89,8 +88,6 @@ bool isValidDate(const std::string& date) {
 }
 
 bool BitcoinExchange::setDatabase(BitcoinExchange::list& lst, std::string const filename, char delimiter, bool check_date) {
-    std::cout << "Called setDatabase with " << filename << std::endl;
-
     std::ifstream   file(filename.c_str());
     if (!file.is_open()) {
         std::cerr << "Error: Could not open file " << filename << "." << std::endl;
@@ -109,7 +106,7 @@ bool BitcoinExchange::setDatabase(BitcoinExchange::list& lst, std::string const 
         }
         if (check_date && !isValidDate(date_str)) {
             std::cout << "Invalid date in " << filename << ": " << date_str << std::endl;
-            continue;
+            return (false);
         }
 
         std::stringstream ss(val_str);
@@ -117,9 +114,6 @@ bool BitcoinExchange::setDatabase(BitcoinExchange::list& lst, std::string const 
         ss >> val;
         if (pos == std::string::npos)
             val = -1;
-        // if (delimiter == '|' && (val < 0 || val > 1000))
-        //     continue;
-
         lst.push_back(std::make_pair(date_str, val));
         line.clear();
     }
