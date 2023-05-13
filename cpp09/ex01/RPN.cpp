@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmeising <mmeising@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:14:44 by mmeising          #+#    #+#             */
-/*   Updated: 2023/04/02 22:00:26 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:08:34 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,13 @@ bool RPN::calc(std::string input) {
         result = first - second;
     else if (input[0] == '*')
         result = first * second;
-    else if (input[0] == '/')
+    else if (input[0] == '/') {
+        if (second == 0) {
+            std::cout << "Error: trying to break the universe with division by 0?" << std::endl;
+            return (false);
+        }
         result = first / second;
+    }
     stack_.push(result);
     return (true);
 }
