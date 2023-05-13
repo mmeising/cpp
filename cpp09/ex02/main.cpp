@@ -6,7 +6,7 @@
 /*   By: mmeising <mmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 19:07:30 by mmeising          #+#    #+#             */
-/*   Updated: 2023/05/13 14:36:36 by mmeising         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:24:44 by mmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,8 @@
 #include <ctime>
 #include <typeinfo>
 
-// template <typename T>
-// void foo()
-// {
-//     if (typeid(T) == typeid(animal)) { /* ... */ }
-// }
-
 int main(int argc, char** argv) {
-    // // std::time_t start;
-    // // struct timeval begin;
-    // clock_t beginning;
-
-    // // time(&start);
-    // // begin.tv_usec;
-    // // CLOCKS_PER_SEC;
-    // beginning = clock();
-    // for (int i = 0; i < 10000; i++);
-    // std::cout << "it took " << (float)(clock() - beginning)/CLOCKS_PER_SEC << " seconds" << std::endl;
-
     PmergeMe test;
-
-    // std::deque<int> deq;
-
-    // for (int i = 1; i < 6; i++) {
-    //     deq.push_back(i);
-    // }
-    // std::cout << "Deque contains:";
-    // std::deque<int>::iterator it = deq.begin();
-    // for (it = deq.begin(); it != deq.end(); ++it)
-    //    std::cout << ' ' << *it;
-    // std::cout << std::endl;
-
-    // it = deq.begin();
-    // deq.insert(it, 10);
-    // std::cout << "Deque contains:";
-    // for (it = deq.begin(); it != deq.end(); ++it)
-    //    std::cout << ' ' << *it;
-    // std::cout << std::endl;
-    // return (0);
 
     if (argc < 2) {
         std::cout   << "Usage: ./PmergeMe 3 1 2 5 4\n"
